@@ -1,21 +1,24 @@
 # Description
 
-This charm performs a basic LDAP install (including phpldapadmin), and loads
-the LDAP server with a pre-defined set of user data (see files/backup.ldif).
+This charm performs a basic Kerberos install, creates a principal for tests, 
+and an admin user. 
 
-The top-level domain is `dc=test,dc=com`.
+The user is:
 
-The users are:
+    admin
 
-    johndoe
-    janedoe
+The password is:
 
-The password for each is 'crapper'.
+    password123
 
-The password for the admin administrator (cn=admin,dc=test,dc=com) on the
-server is also 'crapper'.
+Once the server is deployed, you can test the authentication of the user
+with kinit:
 
-phpldapadmin is also installed on the server and can be accessed on:
+    kinit admin
+    Password for admin@TESTUBUNTU.COM: password123
+    
+The keytab for the principal is created and located at /etc/krb5.keytab.
 
-    http://<server-ip>/phpldapadmin
+Most of this code has been taken from testing scripts from the request-kerberos
+python library https://github.com/requests/requests-kerberos.
 

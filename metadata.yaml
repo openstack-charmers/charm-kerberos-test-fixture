@@ -1,7 +1,7 @@
 name: kerberos-test-fixture
 summary: Kerberos test fixture for OpenStack Testing
 maintainer: OpenStack Charmers <openstack-charmers@lists.ubuntu.com>
-description: Basic Kerberos install with known test data (see files/)
+description: Basic Kerberos install with known test data
 tags:
   - misc
 series:
