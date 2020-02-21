@@ -1,44 +1,10 @@
 #!/bin/bash
 
-#set -ex
-#
-#RELEASE=$(lsb_release -r -s | awk -F. '{print $1}')
-#
-#if [ $RELEASE -lt 16 ]; then
-#    STOP_REQUIRED=True
-#fi
-#
-#debconf-set-selections <<EOF
-#slapd slapd/internal/adminpw password crapper
-#slapd slapd/password1 password crapper
-#slapd slapd/password2 password crapper
-#slapd slapd/domain string test.com
-#slapd shared/organization string test
-#EOF
-#
-#apt -y install slapd ldap-utils phpldapadmin
-#
-#sed -i "s/dc=example/dc=test/g" /etc/phpldapadmin/config.php
-#service apache2 restart
-#
-#if [ $STOP_REQUIRED ]; then
-#    service slapd stop
-#fi
-#
-#slapadd -v -c -l files/backup.ldif
-#
-#if [ $STOP_REQUIRED ]; then
-#    service slapd start
-#fi
-#
-#status-set 'active' 'Unit is ready'
-
-
 set -e
 
 
 hostnamectl set-hostname kerberos.testubuntu.com
-IP_ADDRESS=$(hostname -I | awk '{print $1}')
+export IP_ADDRESS=$(hostname -I | awk '{print $1}')
 export KERBEROS_HOSTNAME=$(cat /etc/hostname)
 export KERBEROS_USERNAME='admin'
 export KERBEROS_PASSWORD='password123'
@@ -46,7 +12,7 @@ export KERBEROS_REALM='TESTUBUNTU.COM'
 export DEBIAN_FRONTEND=noninteractive
 
 
-sudo sed -i "/.*$HOSTNAME/c\\$IP_ADDRESS\t$KERBEROS_HOSTNAME" /etc/hosts
+sudo sed -i "/localhost/i\\$IP_ADDRESS\t$KERBEROS_HOSTNAME" /etc/hosts
 
 
 echo "Setting up Kerberos config file at /etc/krb5.conf"
