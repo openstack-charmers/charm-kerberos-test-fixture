@@ -11,8 +11,10 @@ The password is:
 
     password123
 
-Once the server is deployed, you can test the authentication of the user
-with kinit:
+Once the server is deployed, add an entry in */etc/hosts* of your local machine 
+to be able to contact the kerberos by its hostname **kerberos.testubuntu.com**.
+
+Then, you can test the authentication of the user with kinit:
 
     kinit admin
     Password for admin@TESTUBUNTU.COM: password123
