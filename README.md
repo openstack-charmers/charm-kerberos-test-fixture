@@ -10,6 +10,14 @@ The user is:
 The password is:
 
     password123
+    
+Kerberos realm is:
+    
+    TESTUBUNTU.COM
+    
+Kerberos server is:
+
+    kerberos.testubuntu.com
 
 Once the server is deployed, add an entry in */etc/hosts* of your local machine 
 to be able to contact the kerberos by its hostname **kerberos.testubuntu.com**.
