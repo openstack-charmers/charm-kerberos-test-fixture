@@ -5,6 +5,7 @@ description: Basic Kerberos install with known test data
 tags:
   - misc
 series:
+  - focal
   - disco
   - bionic
   - xenial
