@@ -5,8 +5,9 @@ description: Basic Kerberos install with known test data
 tags:
   - misc
 series:
+  - impish
+  - hirsute
+  - groovy
   - focal
-  - disco
   - bionic
   - xenial
-  - trusty
