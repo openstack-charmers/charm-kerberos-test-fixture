@@ -35,7 +35,7 @@ EOL
 
 echo "Setting up kerberos ACL configuration at /etc/krb5kdc/kadm5.acl"
 mkdir /etc/krb5kdc
-echo -e "*/*@${KERBEROS_REALM^^}\t*" > /etc/krb5kdc/kadm5.acl
+echo -e "*@${KERBEROS_REALM^^}\t*\n*/*@${KERBEROS_REALM^^}\t*\n" > /etc/krb5kdc/kadm5.acl
 
 echo "Installing all the packages required in this test"
 apt-get update
